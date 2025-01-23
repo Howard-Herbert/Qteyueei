@@ -59,7 +59,7 @@ module.exports = {
         const sender = await api.getUserInfo(event.senderID);
         const username = sender[event.senderID].name || 'User';
         await api.sendMessage({
-          body: ` ${username} \n\n ${randomMessage}`,
+          body: `‎♡ ${username} ‎♡\n\n ${randomMessage}`,
           mentions: [{ tag: username, id: event.senderID }],
         }, event.threadID, event.messageID);
         return;
