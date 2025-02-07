@@ -1,34 +1,71 @@
 module.exports = {
+
   config: {
+
     name: "prefix",
+
     aliases: ["Prefiz2", "px2"],
+
     version: "1.2",
-    author: "SK-SIDDIK-KHAN",
+
+    author: "SK-SIDDIK-KHAN", 
+
     countDown: 5,
+
     role: 0,
+
+    shortDescription: {
+
+      en: ""
+
+    },
+
+    longDescription: {
+
+      en: "get information."
+
+    },
+
     category: "auto",
+
+    guide: {
+
+      en: "{pn}"
+
+    }
+
   },
+
 
   onStart: async function() {},
 
   onChat: async function({ event, message, getLang, usersData, threadsData }) {
-    try {
-      if (event.body && event.body.toLowerCase() === "prefix") {
-        
-        const data = await usersData.get(event.senderID);
-        const name = data?.name || "User";
 
-        const thread = await threadsData.get(event.threadID);
-        const threadName = thread?.threadName || "Unknown";
+    if (event.body && event.body.toLowerCase() === "prefix") {
 
-        return message.reply({
-          body: `¦§¦¡¦¡¦¡¢Á ??????-??? ¢Á¦¡¦¡¦¡¦©\n\n¦§¦¡? ${name}\n\n¦§¦¡? ???-??????:¡¼ ${global.GoatBot.config.prefix} ¡½\n\n¦§¦¡? ???-????: ??????-??? \n\n¦§¦¡????-???? : ${threadName}`,
-          attachment: await global.utils.getStreamFromURL("https://i.imgur.com/jh4xtD2.jpeg")
-        });
-      }
-    } catch (error) {
-      console.error("Error in prefix command:", error);
-      return message.reply("An error occurred while processing your request. Please try again later.");
+
+      const data = await usersData.get(event.senderID);
+
+
+      const name = data.name;
+
+
+      const thread = (await threadsData.get(event.threadID))
+
+
+      const threadName = thread.threadName;
+
+
+      return message.reply({
+
+        body: `â”œâ”€â”€â”€âŠ™ ğğ‘ğ„ğ…ğˆğ—-ğ‚ğŒğƒ âŠ™â”€â”€â”€â”¤\n\nâ”œâ”€â¯ ${name}\n\nâ”œâ”€â¯ ğğğ“-ğğ‘ğ„ğ…ğˆğ—:ã€ ${global.GoatBot.config.prefix} ã€‘\n\nâ”œâ”€â¯ ğğğ“-ğğ€ğŒğ„: ğ’ğˆğƒğƒğˆğŠ-ğğğ“ \n\nâ”œâ”€â¯ğğğ—-ğğ€ğŒğ„ : ${threadName}`,
+
+        attachment: await global.utils.getStreamFromURL("https://i.imgur.com/jh4xtD2.jpeg")
+
+      });
+
     }
-  },
+
+  }
+
 };
