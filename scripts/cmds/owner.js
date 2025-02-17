@@ -1,8 +1,7 @@
-const { GoatWrapper } = require("fca-liane-utils");
 module.exports = {
     config: {
         name: "owner",
-        aliases: ["admin", "addmin"],
+        aliases: ["adddmins", "addmin"],
         version: "1.2",
         author: "SK-SIDDIK-KHAN",
         countDown: 2,
@@ -67,4 +66,3 @@ module.exports = {
       });
     }
   };
-const wrapper = new GoatWrapper(module.exports); wrapper.applyNoPrefix({ allowPrefix: true });
